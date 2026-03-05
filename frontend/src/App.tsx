@@ -3,13 +3,13 @@ import './index.css'
 import SimpleDashboard from './pages/SimpleDashboard'
 import SimpleLanding from './pages/SimpleLanding'
 
-// SmartMeet AI Frontend - Updated: 2026-03-05 23:22
-// This will force Vercel to use the latest commit
+// SmartMeet AI Frontend - Updated: 2026-03-06 00:25
+// Force Vercel to use latest commit - NO MORE CACHE
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-background text-foreground">
+      <div style={{ minHeight: '100vh', backgroundColor: '#ffffff', color: '#0f172a' }}>
         <Routes>
           <Route path="/" element={<SimpleLanding />} />
           <Route path="/dashboard" element={<SimpleDashboard />} />
