@@ -6,16 +6,22 @@ from app.api.routes import meetings, video, railway_storage
 from app.db.session import engine
 from app.models.meeting import Base
 import os
+import time
 
 # Create database tables
-Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+    print("Database tables created successfully")
+except Exception as e:
+    print(f"Database connection error: {e}")
+    print("Continuing without database connection...")
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
-# Set up CORS
+# Set up CORS - allow all origins for Railway deployment
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_origins=["*"],  # Allow all origins for Railway deployment
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,8 +38,25 @@ app.include_router(railway_storage.router, prefix=f"{settings.API_V1_STR}/railwa
 
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "message": "SmartMeet AI Backend is running"}
+    """Health check endpoint for Railway"""
+    return {
+        "status": "healthy",
+        "message": "SmartMeet AI Backend is running",
+        "timestamp": time.time(),
+        "environment": os.getenv("RAILWAY_ENVIRONMENT", "development")
+    }
+
+@app.get("/")
+async def root():
+    """Root endpoint"""
+    return {
+        "message": "SmartMeet AI API",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "health": "/health"
+    }
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
