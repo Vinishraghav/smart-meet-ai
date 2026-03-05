@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """
-Automatic Railway Deployment Script for SmartMeet AI (FREE)
+Direct Railway Deployment for SmartMeet AI (FREE)
 """
 
 import subprocess
 import sys
-import time
 
 def run_command(command, description):
     """Run a command and handle errors"""
     print(f"\n[INFO] {description}")
     print(f"Running: {command}")
-
+    
     try:
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
         if result.returncode == 0:
@@ -24,86 +23,66 @@ def run_command(command, description):
         print(f"[EXCEPTION] {e}")
         return False
 
-def deploy_to_railway():
-    """Deploy SmartMeet AI to Railway automatically"""
-
-    print("SmartMeet AI - Automatic Railway Deployment")
-    print("=" * 60)
-
+def deploy_now():
+    """Deploy SmartMeet AI to Railway now"""
+    
+    print("SmartMeet AI - Railway Deployment")
+    print("=" * 50)
+    
     # Step 1: Check if Railway CLI is installed
     if not run_command("railway --version", "Checking Railway CLI"):
         print("Installing Railway CLI...")
         if not run_command("npm install -g @railway/cli", "Installing Railway CLI"):
             print("Failed to install Railway CLI")
             return False
-
+    
     # Step 2: Login to Railway
     print("\nPlease login to Railway...")
     if not run_command("railway login", "Login to Railway"):
         print("Failed to login to Railway")
         return False
-
+    
     # Step 3: Initialize Railway project
     print("\nInitializing Railway project...")
     if not run_command("railway init", "Initialize Railway project"):
         print("Failed to initialize Railway project")
         return False
-
+    
     # Step 4: Add PostgreSQL service
     print("\nAdding PostgreSQL database...")
     if not run_command("railway add postgresql", "Add PostgreSQL service"):
         print("Failed to add PostgreSQL service")
         return False
-
+    
     # Step 5: Deploy to Railway
     print("\nDeploying to Railway...")
     if not run_command("railway up", "Deploy to Railway"):
         print("Failed to deploy to Railway")
         return False
-
+    
     # Step 6: Get deployment URL
     print("\nGetting deployment URL...")
     result = subprocess.run("railway domain", shell=True, capture_output=True, text=True)
     if result.returncode == 0:
         domain = result.stdout.strip()
-        print(f"Your SmartMeet AI is live at: {domain}")
+        print(f"SUCCESS! Your SmartMeet AI is live at: {domain}")
         print(f"API docs: {domain}/docs")
         print(f"Health check: {domain}/health")
+        return domain
     else:
         print("Failed to get deployment URL")
-
-    return True
-
-def main():
-    """Main deployment function"""
-
-    print("SmartMeet AI - Automatic Railway Deployment")
-    print("=" * 60)
-    print("This will deploy SmartMeet AI to Railway for FREE!")
-    print("Features:")
-    print("  + PostgreSQL database (FREE)")
-    print("  + 500MB file storage (FREE)")
-    print("  + 100GB bandwidth (FREE)")
-    print("  + Automatic HTTPS")
-    print("  + Custom domain")
-    print("  + Zero cost")
-
-    # Ask for confirmation
-    response = input("\nDo you want to deploy now? (y/n): ")
-    if response.lower() != 'y':
-        print("Deployment cancelled")
-        return
-
-    # Deploy
-    if deploy_to_railway():
-        print("\nDeployment completed successfully!")
-        print("\nNext steps:")
-        print("  1. Test your app at the provided URL")
-        print("  2. Upload videos using the API")
-        print("  3. Share your SmartMeet AI with others!")
-        print("\nCost: $0/month (FREE tier)")
-    else:
-        print("\nDeployment failed. Please check the errors above.")
+        return None
 
 if __name__ == "__main__":
-    main()
+    print("Deploying SmartMeet AI to Railway for FREE...")
+    print("Features: PostgreSQL + 500MB storage + 100GB bandwidth")
+    
+    domain = deploy_now()
+    if domain:
+        print(f"\nDEPLOYMENT SUCCESSFUL!")
+        print(f"Your app is live at: {domain}")
+        print(f"Test video upload at: {domain}/docs")
+        print(f"Cost: $0/month (FREE tier)")
+    else:
+        print("\nDEPLOYMENT FAILED!")
+        print("Please check the errors above and try manually.")
