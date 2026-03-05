@@ -1,30 +1,55 @@
 # SmartMeet AI - Railway Automatic Deployment
 
 [build]
-builder = "DOCKERFILE"
+builder = "NIXPACKS"
 
 [deploy]
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 3
-# healthcheckPath = "/health"  # Temporarily disabled
-# healthcheckTimeout = 30
-# healthcheckInterval = 30
-# healthcheckRetries = 3
 
 [env]
-PORT = "8080"
+NODE_ENV = "production"
 PYTHON_VERSION = "3.11"
 
-# Web Service Configuration
-[services.web]
-[services.web.name]
-value = "smart-meet-ai"
+# Backend Service (already deployed)
+[services.backend]
+[services.backend.name]
+value = "smart-meet-ai-backend"
 
-[services.web.type]
+[services.backend.type]
 value = "web"
 
-[services.web.plan]
+[services.backend.plan]
 value = "free"
+
+[services.backend.buildCommand]
+value = "cd backend && pip install -r requirements_railway.txt"
+
+[services.backend.startCommand]
+value = "cd backend && ./start.sh"
+
+[services.backend.healthCheckPath]
+value = "/health"
+
+# Frontend Service (new)
+[services.frontend]
+[services.frontend.name]
+value = "smart-meet-ai-frontend"
+
+[services.frontend.type]
+value = "web"
+
+[services.frontend.plan]
+value = "free"
+
+[services.frontend.buildCommand]
+value = "cd frontend && npm install && npm run build"
+
+[services.frontend.startCommand]
+value = "cd frontend && npm run preview"
+
+[services.frontend.healthCheckPath]
+value = "/"
 
 # PostgreSQL Service
 [services.database]
