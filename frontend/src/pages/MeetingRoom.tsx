@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { Mic, MicOff, Video, VideoOff, PhoneOff, Users, Share2, Settings, MessageSquare, FileText, Activity } from 'lucide-react'
+import { Activity, FileText, MessageSquare, Mic, PhoneOff, Settings, Share2, Users, Video } from 'lucide-react'
+import { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 export default function MeetingRoom() {
   const { meetingId } = useParams<{ meetingId: string }>()
@@ -109,8 +109,8 @@ export default function MeetingRoom() {
                 <button
                   onClick={isRecording ? handleStopRecording : handleStartRecording}
                   className={`px-6 py-3 rounded-full font-medium transition-all ${
-                    isRecording 
-                      ? 'bg-red-500 hover:bg-red-600 text-white' 
+                    isRecording
+                      ? 'bg-red-500 hover:bg-red-600 text-white'
                       : 'bg-primary hover:bg-primary/90 text-primary-foreground'
                   }`}
                 >
