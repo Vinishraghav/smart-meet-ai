@@ -71,45 +71,47 @@ export default function SimpleDashboard() {
             <button
               onClick={handleStartMeeting}
               style={{
-                flex: 1,
+                width: '100%',
+                padding: '1rem 2rem',
+                borderRadius: '1rem',
+                backgroundColor: '#0f172a',
+                color: '#ffffff',
+                border: 'none',
+                fontWeight: 'bold',
+                fontSize: '1.125rem',
+                cursor: 'pointer',
+                boxShadow: '0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04)',
+                transition: 'all 0.15s ease',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.5rem',
-                backgroundColor: '#0f172a',
-                color: '#ffffff',
-                padding: '1rem 2rem',
-                borderRadius: '1rem',
-                fontWeight: 'bold',
-                fontSize: '1.125rem',
-                border: 'none',
-                cursor: 'pointer',
-                boxShadow: '0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04)',
-                transition: 'all 0.15s ease'
+                gap: '0.5rem'
               }}
             >
-              ▶️ Start Instant Meeting
+              <span style={{ fontSize: '1.25rem' }}>▶️</span>
+              <span>Start Instant Meeting</span>
             </button>
             <Link
               to="/join"
               style={{
-                flex: 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                backgroundColor: '#f8fafc',
-                color: '#0f172a',
+                width: '100%',
                 padding: '1rem 2rem',
                 borderRadius: '1rem',
+                backgroundColor: '#f8fafc',
+                color: '#0f172a',
+                textDecoration: 'none',
                 fontWeight: 'bold',
                 fontSize: '1.125rem',
                 border: '1px solid #e2e8f0',
-                textDecoration: 'none',
-                transition: 'all 0.15s ease'
+                transition: 'all 0.15s ease',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem'
               }}
             >
-              👥 Join Meeting
+              <span style={{ fontSize: '1.25rem' }}>👥</span>
+              <span>Join Meeting</span>
             </Link>
           </div>
 
