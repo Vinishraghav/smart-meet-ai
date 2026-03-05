@@ -15,6 +15,9 @@ class MeetingResponse(BaseModel):
     status: str
     type: str
     recording_enabled: bool
+    recording_url: Optional[str] = None
+    recording_size: Optional[int] = None
+    thumbnail_url: Optional[str] = None
 
     class Config:
         from_attributes = True
@@ -49,3 +52,10 @@ class TranscriptResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+class VideoUploadResponse(BaseModel):
+    success: bool
+    video_url: Optional[str] = None
+    file_size: int
+    meeting_id: str
+    message: str

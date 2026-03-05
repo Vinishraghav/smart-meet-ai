@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, DateTime, Boolean, Integer, Text, ForeignKey
+from sqlalchemy import Column, String, DateTime, Boolean, Integer, Text, ForeignKey, BigInteger
 from sqlalchemy.orm import relationship
 from app.db.session import Base
 import uuid
@@ -15,6 +15,13 @@ class Meeting(Base):
     status = Column(String, default="ongoing")  # upcoming, ongoing, completed
     type = Column(String, default="general")  # general, interview
     recording_enabled = Column(Boolean, default=True)
+
+    # Video storage fields (FREE Supabase Storage)
+    recording_url = Column(String, nullable=True)  # Supabase Storage URL
+    recording_size = Column(BigInteger, default=0)  # File size in bytes
+    recording_duration = Column(Integer, default=0)  # Video duration in seconds
+    recording_format = Column(String, default="mp4")  # Video format
+    thumbnail_url = Column(String, nullable=True)  # Thumbnail URL
 
     participants = relationship("Participant", back_populates="meeting")
     transcripts = relationship("Transcript", back_populates="meeting")
