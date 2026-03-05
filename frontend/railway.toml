@@ -1,0 +1,29 @@
+# SmartMeet AI Frontend - Railway Deployment
+
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[env]
+NODE_ENV = "production"
+VITE_API_URL = "https://smart-meet-ai-production.up.railway.app"
+
+# Web Service Configuration
+[services.web]
+[services.web.name]
+value = "smart-meet-ai-frontend"
+
+[services.web.type]
+value = "web"
+
+[services.web.plan]
+value = "free"
+
+[services.web.buildCommand]
+value = "npm run build"
+
+[services.web.startCommand]
+value = "npm run preview"

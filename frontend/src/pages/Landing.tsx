@@ -1,7 +1,27 @@
+import { Bot, Calendar, HeartPulse, LineChart, Shield, Sparkles, Zap } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Bot, LineChart, Shield, Zap, Calendar, HeartPulse, Sparkles } from 'lucide-react'
+import { API_ENDPOINTS, apiClient } from '../api'
 
 export default function Landing() {
+  const [apiStatus, setApiStatus] = useState<'checking' | 'online' | 'offline'>('checking')
+
+  useEffect(() => {
+    // Check if backend is online
+    const checkApiStatus = async () => {
+      try {
+        await apiClient.get(API_ENDPOINTS.HEALTH)
+        setApiStatus('online')
+      } catch (error) {
+        setApiStatus('offline')
+      }
+    }
+
+    checkApiStatus()
+    const interval = setInterval(checkApiStatus, 30000) // Check every 30 seconds
+    return () => clearInterval(interval)
+  }, [])
+
   const features = [
     {
       title: 'Real-time AI Transcription',
@@ -42,11 +62,17 @@ export default function Landing() {
           <div className="flex items-center gap-2">
             <Sparkles className="text-primary" size={28} />
             <span className="text-xl font-bold text-foreground">SmartMeet AI</span>
+            <div className="flex items-center gap-2 ml-4">
+              <div className={`w-2 h-2 rounded-full ${apiStatus === 'online' ? 'bg-green-500' : apiStatus === 'offline' ? 'bg-red-500' : 'bg-yellow-500'}`}></div>
+              <span className="text-xs text-muted-foreground">
+                {apiStatus === 'online' ? 'API Online' : apiStatus === 'offline' ? 'API Offline' : 'Checking...'}
+              </span>
+            </div>
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
-              Dashboard
-            </Link>
+            <a href={API_ENDPOINTS.DOCS} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              API Docs
+            </a>
             <Link to="/dashboard" className="px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
               Get Started
             </Link>
@@ -107,10 +133,10 @@ export default function Landing() {
             SmartMeet AI provides webhook-ready REST API endpoints allowing seamless connectivity to your automation pipelines.
           </p>
           <div className="bg-surface/80 backdrop-blur-sm p-6 inline-block font-mono text-sm text-left border border-border rounded-xl">
-            <div className="text-accent mb-2"># Webhook Configuration Structure</div>
-            <div className="text-primary">POST</div> <span className="text-muted-foreground">/api/meeting/audio-upload</span><br />
-            <div className="text-secondary mt-2">GET</div> <span className="text-muted-foreground">/api/meeting/summary</span><br />
-            <div className="text-accent mt-2">POST</div> <span className="text-muted-foreground">/api/emotion/analyze</span>
+            <div className="text-accent mb-2"># Live API Endpoints</div>
+            <div className="text-primary">POST</div> <span className="text-muted-foreground">{API_ENDPOINTS.CREATE_MEETING}</span><br />
+            <div className="text-secondary mt-2">POST</div> <span className="text-muted-foreground">{API_ENDPOINTS.UPLOAD_VIDEO}</span><br />
+            <div className="text-accent mt-2">GET</div> <span className="text-muted-foreground">{API_ENDPOINTS.HEALTH}</span>
           </div>
         </section>
 
