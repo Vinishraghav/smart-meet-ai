@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { API_ENDPOINTS, apiClient } from '../api'
 
+// SmartMeet AI Dashboard - Fixed for Vercel deployment
+
 interface Meeting {
   id: string
   title: string
