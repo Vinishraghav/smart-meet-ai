@@ -3,6 +3,9 @@ import './index.css'
 import SimpleDashboard from './pages/SimpleDashboard'
 import SimpleLanding from './pages/SimpleLanding'
 
+// SmartMeet AI Frontend - Updated: 2026-03-05 23:22
+// This will force Vercel to use the latest commit
+
 function App() {
   return (
     <Router>
