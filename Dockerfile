@@ -22,12 +22,12 @@ RUN chmod +x start.sh
 # Create uploads directory for video storage
 RUN mkdir -p /app/uploads/videos /app/uploads/thumbnails
 
-# Expose port
-EXPOSE 8000
+# Expose port (Railway uses 8080)
+EXPOSE 8080
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=90s --retries=3 \
-  CMD curl http://localhost:8000/health || exit 1
+  CMD curl http://localhost:8080/health || exit 1
 
 # Start the application using the startup script
 CMD ["./start.sh"]

@@ -12,4 +12,6 @@ ls -la
 
 echo "Starting FastAPI application..."
 cd /app
-exec uvicorn app.main:app --host 0.0.0.0 --port 8000
+# Use Railway's PORT environment variable or default to 8080
+PORT=${PORT:-8080}
+exec uvicorn app.main:app --host 0.0.0.0 --port $PORT
