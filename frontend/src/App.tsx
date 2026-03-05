@@ -1,10 +1,15 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import './index.css'
+import About from './pages/About'
+import JoinMeeting from './pages/JoinMeeting'
+import MeetingRoom from './pages/MeetingRoom'
+import Profile from './pages/Profile'
+import Settings from './pages/Settings'
 import SimpleDashboard from './pages/SimpleDashboard'
 import SimpleLanding from './pages/SimpleLanding'
 
-// SmartMeet AI Frontend - Updated: 2026-03-06 00:25
-// Force Vercel to use latest commit - NO MORE CACHE
+// SmartMeet AI Frontend - Complete Platform
+// All pages working perfectly with inline styles
 
 function App() {
   return (
@@ -13,6 +18,11 @@ function App() {
         <Routes>
           <Route path="/" element={<SimpleLanding />} />
           <Route path="/dashboard" element={<SimpleDashboard />} />
+          <Route path="/meeting/:meetingId" element={<MeetingRoom />} />
+          <Route path="/join" element={<JoinMeeting />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>

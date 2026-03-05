@@ -27,9 +27,20 @@ export default function SimpleDashboard() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <span style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#0f172a' }}>✨ SmartMeet AI</span>
           </div>
-          <Link to="/" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
-            Back to Home
-          </Link>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <Link to="/" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
+              Home
+            </Link>
+            <Link to="/about" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
+              About
+            </Link>
+            <Link to="/profile" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
+              Profile
+            </Link>
+            <Link to="/settings" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
+              Settings
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -79,7 +90,8 @@ export default function SimpleDashboard() {
             >
               ▶️ Start Instant Meeting
             </button>
-            <button
+            <Link
+              to="/join"
               style={{
                 flex: 1,
                 display: 'flex',
@@ -93,12 +105,93 @@ export default function SimpleDashboard() {
                 fontWeight: 'bold',
                 fontSize: '1.125rem',
                 border: '1px solid #e2e8f0',
-                cursor: 'pointer',
+                textDecoration: 'none',
                 transition: 'all 0.15s ease'
               }}
             >
               👥 Join Meeting
-            </button>
+            </Link>
+          </div>
+
+          {/* Quick Links */}
+          <div style={{
+            marginTop: '2rem',
+            padding: '1.5rem',
+            backgroundColor: '#f8fafc',
+            borderRadius: '1rem',
+            border: '1px solid #e2e8f0'
+          }}>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0f172a' }}>
+              Quick Links
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+              <Link
+                to="/profile"
+                style={{
+                  padding: '0.5rem 1rem',
+                  backgroundColor: '#ffffff',
+                  color: '#0f172a',
+                  textDecoration: 'none',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  border: '1px solid #e2e8f0',
+                  textAlign: 'center',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                � Profile
+              </Link>
+              <Link
+                to="/settings"
+                style={{
+                  padding: '0.5rem 1rem',
+                  backgroundColor: '#ffffff',
+                  color: '#0f172a',
+                  textDecoration: 'none',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  border: '1px solid #e2e8f0',
+                  textAlign: 'center',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                ⚙️ Settings
+              </Link>
+              <Link
+                to="/about"
+                style={{
+                  padding: '0.5rem 1rem',
+                  backgroundColor: '#ffffff',
+                  color: '#0f172a',
+                  textDecoration: 'none',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  border: '1px solid #e2e8f0',
+                  textAlign: 'center',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                📖 About
+              </Link>
+              <a
+                href="https://smart-meet-ai-production.up.railway.app/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: '0.5rem 1rem',
+                  backgroundColor: '#ffffff',
+                  color: '#0f172a',
+                  textDecoration: 'none',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  border: '1px solid #e2e8f0',
+                  textAlign: 'center',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                📚 API Docs
+              </a>
+            </div>
           </div>
         </div>
       </main>
