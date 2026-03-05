@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Sparkles, Play, Users } from 'lucide-react'
 
 export default function SimpleDashboard() {
   const handleStartMeeting = async () => {
@@ -22,43 +21,83 @@ export default function SimpleDashboard() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <nav className="bg-surface/80 backdrop-blur-md border-b border-border px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Sparkles className="text-primary" size={28} />
-            <span className="text-xl font-bold text-foreground">SmartMeet AI</span>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#ffffff', color: '#0f172a' }}>
+      <nav style={{ backgroundColor: 'rgba(248, 250, 252, 0.8)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #e2e8f0', padding: '1rem' }}>
+        <div style={{ maxWidth: '80rem', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <span style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#0f172a' }}>✨ SmartMeet AI</span>
           </div>
-          <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
             Back to Home
           </Link>
         </div>
       </nav>
 
-      <main className="flex-1 flex items-center justify-center p-6">
-        <div className="text-center max-w-md">
-          <div className="w-24 h-24 rounded-3xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-2xl shadow-primary/40 mx-auto mb-8">
-            <Sparkles className="text-white" size={48} />
+      <main style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+        <div style={{ textAlign: 'center', maxWidth: '28rem' }}>
+          <div style={{
+            width: '6rem',
+            height: '6rem',
+            borderRadius: '1.5rem',
+            background: 'linear-gradient(135deg, #0f172a 0%, #f8fafc 100%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.25)',
+            margin: '0 auto 2rem'
+          }}>
+            <span style={{ fontSize: '3rem', color: '#ffffff' }}>✨</span>
           </div>
 
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Welcome to Smart<span className="text-gradient bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Meet</span> AI
+          <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem', lineHeight: 1.2 }}>
+            Welcome to Smart<span style={{ background: 'linear-gradient(135deg, #0f172a 0%, #f8fafc 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Meet</span> AI
           </h1>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p style={{ fontSize: '1.25rem', color: '#64748b', marginBottom: '2rem', lineHeight: 1.6 }}>
             Start your first AI-powered meeting
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
             <button
               onClick={handleStartMeeting}
-              className="flex-1 flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-2xl font-bold transition-all shadow-xl shadow-primary/20"
+              style={{
+                flex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                backgroundColor: '#0f172a',
+                color: '#ffffff',
+                padding: '1rem 2rem',
+                borderRadius: '1rem',
+                fontWeight: 'bold',
+                fontSize: '1.125rem',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04)',
+                transition: 'all 0.15s ease'
+              }}
             >
-              <Play size={20} fill="currentColor" />
-              Start Meeting
+              ▶️ Start Instant Meeting
             </button>
-            <button className="flex-1 flex items-center justify-center gap-2 bg-surface hover:bg-surface/80 text-foreground px-8 py-4 rounded-2xl font-bold transition-all border border-border">
-              <Users size={20} />
-              Join Meeting
+            <button
+              style={{
+                flex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                backgroundColor: '#f8fafc',
+                color: '#0f172a',
+                padding: '1rem 2rem',
+                borderRadius: '1rem',
+                fontWeight: 'bold',
+                fontSize: '1.125rem',
+                border: '1px solid #e2e8f0',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease'
+              }}
+            >
+              👥 Join Meeting
             </button>
           </div>
         </div>
