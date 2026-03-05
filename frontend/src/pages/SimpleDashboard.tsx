@@ -21,23 +21,43 @@ export default function SimpleDashboard() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#ffffff', color: '#0f172a' }}>
-      <nav style={{ backgroundColor: 'rgba(248, 250, 252, 0.8)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #e2e8f0', padding: '1rem' }}>
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #334155 100%)',
+      color: '#f1f5f9'
+    }}>
+      <nav style={{
+        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: '1px solid #475569',
+        padding: '1rem',
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+      }}>
         <div style={{ maxWidth: '80rem', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#0f172a' }}>✨ SmartMeet AI</span>
+            <span style={{ fontSize: '1.75rem', fontWeight: 'bold', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>✨ SmartMeet AI</span>
+            <span style={{
+              padding: '0.25rem 0.75rem',
+              backgroundColor: '#10b981',
+              color: '#ffffff',
+              borderRadius: '9999px',
+              fontSize: '0.75rem',
+              fontWeight: 'bold'
+            }}>PREMIUM</span>
           </div>
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <Link to="/" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
+            <Link to="/" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.15s ease' }}>
               Home
             </Link>
-            <Link to="/about" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
+            <Link to="/about" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.15s ease' }}>
               About
             </Link>
-            <Link to="/profile" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
+            <Link to="/profile" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.15s ease' }}>
               Profile
             </Link>
-            <Link to="/settings" style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s ease' }}>
+            <Link to="/settings" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.15s ease' }}>
               Settings
             </Link>
           </div>
@@ -50,21 +70,33 @@ export default function SimpleDashboard() {
             width: '6rem',
             height: '6rem',
             borderRadius: '1.5rem',
-            background: 'linear-gradient(135deg, #0f172a 0%, #f8fafc 100%)',
+            background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.25)',
-            margin: '0 auto 2rem'
+            boxShadow: '0 25px 50px -12px rgba(16, 185, 129, 0.25)',
+            margin: '0 auto 2rem',
+            position: 'relative'
           }}>
             <span style={{ fontSize: '3rem', color: '#ffffff' }}>✨</span>
+            <div style={{
+              position: 'absolute',
+              top: '-0.5rem',
+              right: '-0.5rem',
+              backgroundColor: '#ef4444',
+              color: '#ffffff',
+              fontSize: '0.625rem',
+              fontWeight: 'bold',
+              padding: '0.125rem 0.5rem',
+              borderRadius: '9999px'
+            }}>LIVE</div>
           </div>
 
           <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem', lineHeight: 1.2 }}>
-            Welcome to Smart<span style={{ background: 'linear-gradient(135deg, #0f172a 0%, #f8fafc 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Meet</span> AI
+            Welcome to <span style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>SmartMeet</span> AI
           </h1>
-          <p style={{ fontSize: '1.25rem', color: '#64748b', marginBottom: '2rem', lineHeight: 1.6 }}>
-            Start your first AI-powered meeting
+          <p style={{ fontSize: '1.25rem', color: '#94a3b8', marginBottom: '2rem', lineHeight: 1.6 }}>
+            Start your first AI-powered meeting with premium features
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
@@ -74,13 +106,13 @@ export default function SimpleDashboard() {
                 width: '100%',
                 padding: '1rem 2rem',
                 borderRadius: '1rem',
-                backgroundColor: '#0f172a',
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
                 color: '#ffffff',
                 border: 'none',
                 fontWeight: 'bold',
                 fontSize: '1.125rem',
                 cursor: 'pointer',
-                boxShadow: '0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04)',
+                boxShadow: '0 20px 25px -5px rgba(16, 185, 129, 0.1), 0 10px 10px -5px rgba(16, 185, 129, 0.04)',
                 transition: 'all 0.15s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -89,7 +121,7 @@ export default function SimpleDashboard() {
               }}
             >
               <span style={{ fontSize: '1.25rem' }}>▶️</span>
-              <span>Start Instant Meeting</span>
+              <span>Start Premium Meeting</span>
             </button>
             <Link
               to="/join"
@@ -97,12 +129,12 @@ export default function SimpleDashboard() {
                 width: '100%',
                 padding: '1rem 2rem',
                 borderRadius: '1rem',
-                backgroundColor: '#f8fafc',
-                color: '#0f172a',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                color: '#10b981',
                 textDecoration: 'none',
                 fontWeight: 'bold',
                 fontSize: '1.125rem',
-                border: '1px solid #e2e8f0',
+                border: '2px solid #10b981',
                 transition: 'all 0.15s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -111,19 +143,74 @@ export default function SimpleDashboard() {
               }}
             >
               <span style={{ fontSize: '1.25rem' }}>👥</span>
-              <span>Join Meeting</span>
+              <span>Join Premium Meeting</span>
             </Link>
+          </div>
+
+          {/* Premium Features */}
+          <div style={{
+            marginTop: '2rem',
+            padding: '1.5rem',
+            backgroundColor: 'rgba(16, 185, 129, 0.05)',
+            borderRadius: '1rem',
+            border: '1px solid rgba(16, 185, 129, 0.2)'
+          }}>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', marginBottom: '1rem', color: '#10b981' }}>
+              🚀 Premium Features
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+              <div style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                borderRadius: '0.5rem',
+                fontSize: '0.875rem',
+                color: '#10b981',
+                textAlign: 'center'
+              }}>
+                🤖 AI Transcription
+              </div>
+              <div style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                borderRadius: '0.5rem',
+                fontSize: '0.875rem',
+                color: '#10b981',
+                textAlign: 'center'
+              }}>
+                📹 HD Recording
+              </div>
+              <div style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                borderRadius: '0.5rem',
+                fontSize: '0.875rem',
+                color: '#10b981',
+                textAlign: 'center'
+              }}>
+                🌍 Global Access
+              </div>
+              <div style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                borderRadius: '0.5rem',
+                fontSize: '0.875rem',
+                color: '#10b981',
+                textAlign: 'center'
+              }}>
+                🔒 End-to-End Encryption
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div style={{
             marginTop: '2rem',
             padding: '1.5rem',
-            backgroundColor: '#f8fafc',
+            backgroundColor: 'rgba(30, 41, 59, 0.5)',
             borderRadius: '1rem',
-            border: '1px solid #e2e8f0'
+            border: '1px solid #475569'
           }}>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0f172a' }}>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', marginBottom: '1rem', color: '#f1f5f9' }}>
               Quick Links
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
@@ -131,28 +218,28 @@ export default function SimpleDashboard() {
                 to="/profile"
                 style={{
                   padding: '0.5rem 1rem',
-                  backgroundColor: '#ffffff',
-                  color: '#0f172a',
+                  backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                  color: '#10b981',
                   textDecoration: 'none',
                   borderRadius: '0.5rem',
                   fontSize: '0.875rem',
-                  border: '1px solid #e2e8f0',
+                  border: '1px solid rgba(16, 185, 129, 0.2)',
                   textAlign: 'center',
                   transition: 'all 0.15s ease'
                 }}
               >
-                � Profile
+                👤 Profile
               </Link>
               <Link
                 to="/settings"
                 style={{
                   padding: '0.5rem 1rem',
-                  backgroundColor: '#ffffff',
-                  color: '#0f172a',
+                  backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                  color: '#10b981',
                   textDecoration: 'none',
                   borderRadius: '0.5rem',
                   fontSize: '0.875rem',
-                  border: '1px solid #e2e8f0',
+                  border: '1px solid rgba(16, 185, 129, 0.2)',
                   textAlign: 'center',
                   transition: 'all 0.15s ease'
                 }}
@@ -163,12 +250,12 @@ export default function SimpleDashboard() {
                 to="/about"
                 style={{
                   padding: '0.5rem 1rem',
-                  backgroundColor: '#ffffff',
-                  color: '#0f172a',
+                  backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                  color: '#10b981',
                   textDecoration: 'none',
                   borderRadius: '0.5rem',
                   fontSize: '0.875rem',
-                  border: '1px solid #e2e8f0',
+                  border: '1px solid rgba(16, 185, 129, 0.2)',
                   textAlign: 'center',
                   transition: 'all 0.15s ease'
                 }}
@@ -181,12 +268,12 @@ export default function SimpleDashboard() {
                 rel="noopener noreferrer"
                 style={{
                   padding: '0.5rem 1rem',
-                  backgroundColor: '#ffffff',
-                  color: '#0f172a',
+                  backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                  color: '#10b981',
                   textDecoration: 'none',
                   borderRadius: '0.5rem',
                   fontSize: '0.875rem',
-                  border: '1px solid #e2e8f0',
+                  border: '1px solid rgba(16, 185, 129, 0.2)',
                   textAlign: 'center',
                   transition: 'all 0.15s ease'
                 }}

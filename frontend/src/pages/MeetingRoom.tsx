@@ -12,7 +12,7 @@ export default function MeetingRoom() {
     // Simulate meeting data
     setMeeting({
       id: meetingId,
-      title: 'SmartMeet AI Meeting',
+      title: 'SmartMeet AI Premium Meeting',
       code: 'ABC123',
       status: 'ongoing'
     })
@@ -22,7 +22,7 @@ export default function MeetingRoom() {
     setIsRecording(true)
     // Simulate recording
     setTimeout(() => {
-      setTranscript('Meeting started. Welcome to SmartMeet AI!')
+      setTranscript('Meeting started. Welcome to SmartMeet AI Premium!')
     }, 2000)
   }
 
@@ -40,15 +40,16 @@ export default function MeetingRoom() {
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
-      backgroundColor: '#ffffff',
-      color: '#0f172a'
+      background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #334155 100%)',
+      color: '#f1f5f9'
     }}>
       {/* Header */}
       <nav style={{
-        backgroundColor: 'rgba(248, 250, 252, 0.8)',
+        backgroundColor: 'rgba(15, 23, 42, 0.9)',
         backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid #e2e8f0',
-        padding: '1rem'
+        borderBottom: '1px solid #475569',
+        padding: '1rem',
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
       }}>
         <div style={{
           maxWidth: '80rem',
@@ -58,9 +59,17 @@ export default function MeetingRoom() {
           justifyContent: 'space-between'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#0f172a' }}>✨ SmartMeet AI</span>
+            <span style={{ fontSize: '1.75rem', fontWeight: 'bold', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>✨ SmartMeet AI</span>
+            <span style={{
+              padding: '0.25rem 0.75rem',
+              backgroundColor: '#10b981',
+              color: '#ffffff',
+              borderRadius: '9999px',
+              fontSize: '0.75rem',
+              fontWeight: 'bold'
+            }}>PREMIUM</span>
           </div>
-          <Link to="/dashboard" style={{ color: '#64748b', textDecoration: 'none' }}>
+          <Link to="/dashboard" style={{ color: '#94a3b8', textDecoration: 'none' }}>
             Back to Dashboard
           </Link>
         </div>
@@ -70,16 +79,16 @@ export default function MeetingRoom() {
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '2rem' }}>
         {/* Meeting Info */}
         <div style={{
-          backgroundColor: '#f8fafc',
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
           padding: '1.5rem',
           borderRadius: '1rem',
           marginBottom: '2rem',
-          border: '1px solid #e2e8f0'
+          border: '1px solid rgba(16, 185, 129, 0.2)'
         }}>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#10b981' }}>
             {meeting?.title}
           </h2>
-          <div style={{ display: 'flex', gap: '2rem', color: '#64748b' }}>
+          <div style={{ display: 'flex', gap: '2rem', color: '#94a3b8' }}>
             <span>📅 Meeting ID: {meeting?.id}</span>
             <span>🔢 Code: {meeting?.code}</span>
             <span>👥 Participants: {participants}</span>

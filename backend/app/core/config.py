@@ -21,6 +21,7 @@ class Settings(BaseSettings):
         "http://127.0.0.1:5173",
         "http://127.0.0.1:3000",
         "https://smart-meet-ai-4ljb.vercel.app",  # Vercel frontend
+        "https://smart-meet-ai-3dff.vercel.app",  # New Vercel frontend
         "*",  # Allow all origins for Railway deployment
     ]
 
