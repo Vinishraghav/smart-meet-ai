@@ -17,12 +17,12 @@ export default function JoinMeeting() {
 
     try {
       // Simulate API call to join meeting
-      const response = await fetch(`https://smart-meet-ai-production.up.railway.app/api/v1/meetings/join`, {
+      const response = await fetch(`https://smart-meet-ai-production.up.railway.app/api/meetings/join`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           meeting_code: meetingCode,
-          participant_name: userName 
+          participant_name: userName
         })
       })
 
@@ -40,36 +40,36 @@ export default function JoinMeeting() {
   }
 
   return (
-    <div style={{ 
-      minHeight: '100vh', 
-      display: 'flex', 
-      flexDirection: 'column', 
-      backgroundColor: '#ffffff', 
-      color: '#0f172a' 
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      backgroundColor: '#ffffff',
+      color: '#0f172a'
     }}>
       {/* Header */}
-      <nav style={{ 
-        backgroundColor: 'rgba(248, 250, 252, 0.8)', 
-        backdropFilter: 'blur(12px)', 
-        borderBottom: '1px solid #e2e8f0', 
-        padding: '1rem' 
+      <nav style={{
+        backgroundColor: 'rgba(248, 250, 252, 0.8)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: '1px solid #e2e8f0',
+        padding: '1rem'
       }}>
-        <div style={{ 
-          maxWidth: '80rem', 
-          margin: '0 auto', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'space-between' 
+        <div style={{
+          maxWidth: '80rem',
+          margin: '0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <span style={{ fontSize: '1.75rem', fontWeight: 'bold', color: '#0f172a' }}>✨ SmartMeet AI</span>
           </div>
           <button
             onClick={() => navigate('/dashboard')}
-            style={{ 
-              padding: '0.5rem 1rem', 
-              borderRadius: '9999px', 
-              backgroundColor: '#f8fafc', 
+            style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '9999px',
+              backgroundColor: '#f8fafc',
               color: '#0f172a',
               border: '1px solid #e2e8f0',
               textDecoration: 'none',
@@ -84,25 +84,25 @@ export default function JoinMeeting() {
       </nav>
 
       {/* Main Content */}
-      <main style={{ 
-        flex: 1, 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        padding: '2rem' 
+      <main style={{
+        flex: 1,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem'
       }}>
-        <div style={{ 
-          textAlign: 'center', 
-          maxWidth: '28rem', 
-          width: '100%' 
+        <div style={{
+          textAlign: 'center',
+          maxWidth: '28rem',
+          width: '100%'
         }}>
-          <div style={{ 
-            width: '6rem', 
-            height: '6rem', 
-            borderRadius: '1.5rem', 
-            background: 'linear-gradient(135deg, #0f172a 0%, #f8fafc 100%)', 
-            display: 'flex', 
-            alignItems: 'center', 
+          <div style={{
+            width: '6rem',
+            height: '6rem',
+            borderRadius: '1.5rem',
+            background: 'linear-gradient(135deg, #0f172a 0%, #f8fafc 100%)',
+            display: 'flex',
+            alignItems: 'center',
             justifyContent: 'center',
             boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.25)',
             margin: '0 auto 2rem'
@@ -173,10 +173,10 @@ export default function JoinMeeting() {
             </button>
           </div>
 
-          <div style={{ 
-            marginTop: '2rem', 
-            padding: '1rem', 
-            backgroundColor: '#f8fafc', 
+          <div style={{
+            marginTop: '2rem',
+            padding: '1rem',
+            backgroundColor: '#f8fafc',
             borderRadius: '0.5rem',
             border: '1px solid #e2e8f0'
           }}>

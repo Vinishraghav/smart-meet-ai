@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function SimpleDashboard() {
   const handleStartMeeting = async () => {
     try {
-      const response = await fetch('https://smart-meet-ai-production.up.railway.app/api/v1/meetings/create', {
+      const response = await fetch('https://smart-meet-ai-production.up.railway.app/api/meetings/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Instant Meeting' })
